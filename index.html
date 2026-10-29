@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mohamed Aziz Thabet — Portfolio</title>
+    <meta
+      name="description"
+      content="Personal portfolio of Mohamed Aziz Thabet, 1er année prepa tic student at EPI focused on video games and console emulation."
+    />
+    <meta property="og:title" content="Mohamed Aziz Thabet — Portfolio" />
+    <meta
+      property="og:description"
+      content="Personal portfolio of Mohamed Aziz Thabet, 1er année prepa tic at EPI focused on video games and console emulation."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/index.css" />
+  </head>
+  <body>
+    <!-- Top Bar Contract: Brand | Nav Links | Primary Action -->
+    <header class="site-header" id="site-header">
+      <div class="header-inner">
+        <a href="#hero" class="brand-name">Mohamed Aziz Thabet</a>
+
+        <button
+          type="button"
+          class="mobile-menu-button"
+          id="mobile-menu-toggle"
+          aria-expanded="false"
+          aria-controls="primary-navigation"
+          aria-label="Toggle navigation menu"
+        >
+          Menu
+        </button>
+
+        <nav class="site-nav" id="primary-navigation" aria-label="Primary navigation">
+          <a href="#hero" class="nav-link active">Home</a>
+          <a href="#about" class="nav-link">Emulation</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+          <a
+            href="https://github.com/AZ-1282"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="button button-header-cta"
+          >
+            GitHub
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- 1. Hero: my name and a short title + Isometric 3D Toy Truck Playground Demo -->
+    <section id="hero" class="hero-banner">
+      <!-- Subtle RPCS3-style geometric controller vector shapes in background -->
+      <div class="hero-bg-shapes" aria-hidden="true">
+        <svg class="shape shape-triangle" viewBox="0 0 100 100" fill="none">
+          <polygon points="50,12 88,82 12,82" stroke="currentColor" stroke-width="6" stroke-linejoin="round" />
+        </svg>
+        <svg class="shape shape-circle" viewBox="0 0 100 100" fill="none">
+          <circle cx="50" cy="50" r="36" stroke="currentColor" stroke-width="6" />
+        </svg>
+        <svg class="shape shape-cross" viewBox="0 0 100 100" fill="none">
+          <line x1="22" y1="22" x2="78" y2="78" stroke="currentColor" stroke-width="6" stroke-linecap="round" />
+          <line x1="78" y1="22" x2="22" y2="78" stroke="currentColor" stroke-width="6" stroke-linecap="round" />
+        </svg>
+        <svg class="shape shape-square" viewBox="0 0 100 100" fill="none">
+          <rect x="20" y="20" width="60" height="60" rx="6" stroke="currentColor" stroke-width="6" />
+        </svg>
+      </div>
+
+      <div class="hero-container">
+        <div class="hero-content">
+          <p class="hero-kicker">1er année prepa tic at EPI</p>
+          <h1 class="hero-title">Mohamed Aziz Thabet</h1>
+          <p class="hero-subtitle">
+            Student passionate about <strong>video games</strong> and console emulation architecture. Drive the 3D toy truck through the interactive world or explore the sections below.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="button button-hero-primary">Explore Projects</a>
+            <a href="#contact" class="button button-hero-secondary">Contact Me</a>
+          </div>
+
+          <dl class="hero-specs">
+            <div class="hero-spec-item">
+              <dt>Studies</dt>
+              <dd>1er année prepa tic at EPI</dd>
+            </div>
+            <div class="hero-spec-item">
+              <dt>In one sentence</dt>
+              <dd>Video games</dd>
+            </div>
+            <div class="hero-spec-item">
+              <dt>GitHub</dt>
+              <dd>
+                <a
+                  href="https://github.com/AZ-1282"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="spec-link"
+                >
+                  github.com/AZ-1282
+                </a>
+              </dd>
+            </div>
+          </dl>
+        </div>
+
+        <!-- Interactive 3D Isometric Toy Car Playground Window (Bruno Simon Style) -->
+        <aside class="emulator-window-card" aria-label="Interactive 3D toy truck playground demo">
+          <div class="window-titlebar">
+            <div class="window-controls" aria-hidden="true">
+              <span class="win-dot win-dot-close"></span>
+              <span class="win-dot win-dot-min"></span>
+              <span class="win-dot win-dot-max"></span>
+            </div>
+            <span class="window-title">3D Isometric World — Drive with WASD / Arrows or Click</span>
+            <div class="window-btn-group">
+              <button type="button" id="reset-world-btn" class="window-action-btn">
+                Reset Blocks
+              </button>
+              <button type="button" id="toggle-autopilot-btn" class="window-action-btn">
+                Auto-Drive: ON
+              </button>
+            </div>
+          </div>
+
+          <div class="window-body">
+            <div class="canvas-stage-wrapper">
+              <canvas
+                id="emulator-canvas"
+                class="emulator-canvas"
+                width="600"
+                height="340"
+                tabindex="0"
+                aria-label="Interactive 3D isometric toy truck playground. Use WASD, arrow keys, or click to drive into 3D letters, crates, and zone portals."
+              ></canvas>
+              <div class="canvas-hud-bar">
+                <span class="hud-control-tip" id="hud-zone-status">
+                  Click anywhere on the ground or press WASD / Arrows to drive the 4x4 truck
+                </span>
+                <button type="button" id="jump-zone-btn" class="hud-jump-btn" hidden>
+                  Open Section
+                </button>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <!-- RPCS3 Signature Curved Wave Bottom Divider -->
+      <div class="hero-wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 96" fill="none" preserveAspectRatio="none">
+          <path
+            d="M0,32 C320,96 720,0 1440,64 L1440,96 L0,96 Z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+    </section>
+
+    <main class="main-container">
+      <!-- Toolbar for Accent Color customization -->
+      <div class="theme-bar card">
+        <div class="theme-bar-left">
+          <span class="theme-bar-label">RPCS3 Accent Palette</span>
+          <div class="accent-swatches" role="group" aria-label="Choose accent color">
+            <button
+              type="button"
+              class="swatch-button active"
+              data-color="#5849e4"
+              data-hover="#4535c9"
+              data-soft="#eef0ff"
+              data-grad-start="#6d4aff"
+              data-grad-end="#3b82f6"
+              aria-label="RPCS3 Royal Purple-Blue"
+              title="RPCS3 Royal Purple-Blue"
+            ></button>
+            <button
+              type="button"
+              class="swatch-button"
+              data-color="#2563eb"
+              data-hover="#1d4ed8"
+              data-soft="#eff6ff"
+              data-grad-start="#2563eb"
+              data-grad-end="#06b6d4"
+              aria-label="PlayStation Cobalt"
+              title="PlayStation Cobalt"
+            ></button>
+            <button
+              type="button"
+              class="swatch-button"
+              data-color="#059669"
+              data-hover="#047857"
+              data-soft="#ecfdf5"
+              data-grad-start="#059669"
+              data-grad-end="#0d9488"
+              aria-label="Emerald"
+              title="Emerald"
+            ></button>
+            <button
+              type="button"
+              class="swatch-button"
+              data-color="#e11d48"
+              data-hover="#be123c"
+              data-soft="#fff1f2"
+              data-grad-start="#e11d48"
+              data-grad-end="#7c3aed"
+              aria-label="Crimson Sunset"
+              title="Crimson Sunset"
+            ></button>
+          </div>
+        </div>
+        <div class="theme-bar-right">
+          <span class="theme-bar-hint">Tip: Knock into the 3D "AZIZ" letters and wooden crates with the truck!</span>
+        </div>
+      </div>
+
+      <!-- 2. About console emulation -->
+      <section id="about" class="section">
+        <div class="section-header">
+          <p class="section-kicker">Architecture &amp; Preservation</p>
+          <h2 class="section-title">About Console Emulation</h2>
+          <p class="section-description">
+            Understanding how software translates console hardware instructions into playable video games on modern systems.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <article class="card about-main-card">
+            <div class="card-accent-line"></div>
+            <h3 class="card-title">Video Games &amp; Hardware Emulation</h3>
+            <p class="card-text">
+              I am <strong>Mohamed Aziz Thabet</strong>, currently studying in <strong>1er année prepa tic at EPI</strong>. In one sentence, my passion is <strong>video games</strong>—both playing them and understanding how consoles work under the hood.
+            </p>
+            <p class="card-text">
+              Console emulators (such as RPCS3, Dolphin, or CHIP-8 interpreters) act as virtual hardware layers. Instead of relying on physical console chips, an emulator decodes original CPU instructions, manages virtual memory banks, and translates graphics and audio commands so classic video games remain playable on modern computers.
+            </p>
+          </article>
+
+          <div class="card emulation-cycle-card">
+            <div class="card-accent-line"></div>
+            <h3 class="card-title">Emulation Execution Pipeline</h3>
+            <p class="card-meta">Click any stage to inspect how an emulator processes a game frame:</p>
+
+            <div class="cycle-tabs" role="tablist" aria-label="Emulation cycle stages">
+              <button
+                type="button"
+                role="tab"
+                aria-selected="true"
+                class="cycle-tab active"
+                data-stage="fetch"
+              >
+                1. Fetch
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected="false"
+                class="cycle-tab"
+                data-stage="decode"
+              >
+                2. Decode
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected="false"
+                class="cycle-tab"
+                data-stage="execute"
+              >
+                3. Execute
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected="false"
+                class="cycle-tab"
+                data-stage="render"
+              >
+                4. Render
+              </button>
+            </div>
+
+            <div class="cycle-panel" id="cycle-detail-panel" aria-live="polite">
+              <div class="cycle-panel-header">
+                <h4 class="cycle-stage-title" id="cycle-stage-title">1. Fetch Opcode from Memory</h4>
+                <code class="cycle-opcode" id="cycle-stage-code">PC -&gt; RAM[0x200]</code>
+              </div>
+              <p class="cycle-stage-text" id="cycle-stage-text">
+                The emulator reads the next instruction byte(s) from the loaded game ROM at the current Program Counter (PC) address and increments the counter.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Projects: 3 projects, each with a name and one line -->
+      <section id="projects" class="section">
+        <div class="section-header">
+          <p class="section-kicker">Development Showcase</p>
+          <h2 class="section-title">Projects</h2>
+          <p class="section-description">
+            Three projects exploring console emulation, 2D video game loops, and binary inspection.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="card project-card">
+            <div class="card-accent-line"></div>
+            <p class="project-meta">Virtual Console · Interpreter</p>
+            <h3 class="card-title">CHIP-8 Console Emulator</h3>
+            <p class="card-text">
+              An interpreter that emulates the classic CHIP-8 instruction set, timers, keypad input, and monochrome frame buffer for retro video games.
+            </p>
+          </article>
+
+          <article class="card project-card">
+            <div class="card-accent-line"></div>
+            <p class="project-meta">Video Games · 2D Loop</p>
+            <h3 class="card-title">Retro 2D Arcade Game</h3>
+            <p class="card-text">
+              A browser-based 2D arcade game written in plain TypeScript and HTML5 Canvas with responsive controls and collision detection.
+            </p>
+          </article>
+
+          <article class="card project-card">
+            <div class="card-accent-line"></div>
+            <p class="project-meta">Binary Tools · Disassembly</p>
+            <h3 class="card-title">ROM Header &amp; Opcode Inspector</h3>
+            <p class="card-text">
+              A lightweight inspection utility that reads cartridge header metadata and translates raw hexadecimal bytes into readable CPU instructions.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- 4. Skills -->
+      <section id="skills" class="section">
+        <div class="section-header">
+          <p class="section-kicker">Technical Stack</p>
+          <h2 class="section-title">Skills</h2>
+          <p class="section-description">
+            Core programming languages, emulation concepts, and tools studied during 1er année prepa tic at EPI.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="card skill-card">
+            <h3 class="skill-title">Languages &amp; Web</h3>
+            <p class="skill-items">TypeScript · JavaScript · HTML5 · CSS3 · Canvas 2D</p>
+          </div>
+
+          <div class="card skill-card">
+            <h3 class="skill-title">Console Emulation</h3>
+            <p class="skill-items">Fetch-Decode-Execute Cycle · Memory Mapping · Bitwise Operations · Opcodes</p>
+          </div>
+
+          <div class="card skill-card">
+            <h3 class="skill-title">Video Game Systems</h3>
+            <p class="skill-items">Game Loops · Frame Timing · Controller Input State · 2D Collision Logic</p>
+          </div>
+
+          <div class="card skill-card">
+            <h3 class="skill-title">Academic &amp; Workflow</h3>
+            <p class="skill-items">1er année prepa tic (EPI) · Git · GitHub · Algorithmic Problem Solving</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Contact: my email and my GitHub link -->
+      <section id="contact" class="section">
+        <div class="section-header">
+          <p class="section-kicker">Connect</p>
+          <h2 class="section-title">Contact</h2>
+          <p class="section-description">
+            Get in touch via email or check out my code on GitHub.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="card contact-card">
+            <div class="card-accent-line"></div>
+            <div>
+              <p class="contact-label">Email Address</p>
+              <p class="contact-value">
+                <a href="mailto:mohamed1282.azizthabet@gmail.com" class="contact-link">
+                  mohamed1282.azizthabet@gmail.com
+                </a>
+              </p>
+            </div>
+            <div class="contact-actions">
+              <a href="mailto:mohamed1282.azizthabet@gmail.com" class="button button-primary">
+                Send Email
+              </a>
+              <button
+                type="button"
+                id="copy-email-button"
+                class="button button-secondary"
+                data-email="mohamed1282.azizthabet@gmail.com"
+              >
+                Copy Email
+              </button>
+            </div>
+          </div>
+
+          <div class="card contact-card">
+            <div class="card-accent-line"></div>
+            <div>
+              <p class="contact-label">GitHub Profile</p>
+              <p class="contact-value">
+                <a
+                  href="https://github.com/AZ-1282"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="contact-link"
+                >
+                  https://github.com/AZ-1282
+                </a>
+              </p>
+            </div>
+            <div class="contact-actions">
+              <a
+                href="https://github.com/AZ-1282"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="button button-primary"
+              >
+                Open GitHub (AZ-1282)
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p class="footer-text">Mohamed Aziz Thabet · 1er année prepa tic at EPI · Video games</p>
+        <p class="footer-links">
+          <a href="mailto:mohamed1282.azizthabet@gmail.com">mohamed1282.azizthabet@gmail.com</a>
+          <span aria-hidden="true">·</span>
+          <a href="https://github.com/AZ-1282" target="_blank" rel="noopener noreferrer">
+            github.com/AZ-1282
+          </a>
+        </p>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
